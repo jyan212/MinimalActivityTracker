@@ -6,6 +6,7 @@ As an avid google play store user myself, I take privacy very seriously. I know 
 
 Therefore, I have not programmed this app to collect any personally identifiable information. All data created by you were stored in your local storage in your phone and it can be simply erased by clearing the application data or uninstalling it.
 
+Moroever, the apps does not contain any inappropriate content for children, only appropriate items are displayed.
 If you find any security vulnerability that has been inadvertently caused by me, or have any question regarding how the app protectes your privacy, please send me an email and I will surely try to fix it/help you.
 
 Yours sincerely, Tan Jun Yan. Selangor, Malaysia. tjyn0212@gmail.com.
