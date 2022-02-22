@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "tracker",
-    "slug": "tracker",
-    "version": "1.0.0",
+    "name": "Good: Minimal Activity Track",
+    "slug": "minimalLifeTracker",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#f9f9f9"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,11 +22,14 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#f9f9f9"
+      },
+      "package": "com.junyan.minimalLifeTracker",
+      "versionCode": 4
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Track you life progress in the most minimal way. Remember, you Define what the black and white boxes are. Long press for placing white box, Double tap for placing black box.."
   }
 }
