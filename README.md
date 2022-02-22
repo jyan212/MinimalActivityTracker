@@ -5,6 +5,6 @@ You define what the boxes mean.
 
 App screenshot: <br />
 <img src="https://github.com/jyan212/MinimalActivityTracker/blob/master/assets/s1.png" width="240" height="445" />
-<img src="https://github.com/jyan212/MinimalActivityTracker/blob/master/assets/s2.png" width="240" height="445" /> 
+<img src="https://github.com/jyan212/MinimalActivityTracker/blob/master/assets/s2.png" width="240" height="445" /> <br />
 <img src="https://github.com/jyan212/MinimalActivityTracker/blob/master/assets/s3.png" width="240" height="445" /> 
 <img src="https://github.com/jyan212/MinimalActivityTracker/blob/master/assets/s4.png" width="240" height="445" /> 
