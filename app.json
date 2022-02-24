@@ -25,7 +25,8 @@
         "backgroundColor": "#f9f9f9"
       },
       "package": "com.junyan.minimalLifeTracker",
-      "versionCode": 4
+      "versionCode": 4,
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "favicon": "./assets/favicon.png"

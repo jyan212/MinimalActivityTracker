@@ -1,25 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import 'react-native-reanimated'
-export const isHistoryEmpty = async (key) => {
-    // return a boolean that states whether the localstorage is empty
-    try {
-        const value = await AsyncStorage.getItem(key)
-        if (value != null) {
-            return false
-        }
-    } catch (e) {
-        console.log(e)
-        return true
-    }
-
-    return true
-} 
-
-export const getCurrentTimeStampInKey = () => {
-    // this function return the current date in key form used in our data structure
-    let dt = new Date();
-    return dt.getTime()
-}
 
 export const getFullDataInJSON = async () => {
     try {
@@ -30,6 +10,12 @@ export const getFullDataInJSON = async () => {
         console.log(e)
         return false
     }
+}
+
+export const isUpdated = (data) => {
+    const a = data.data.filter(x => x.date.day == new Date().getDate()).length
+
+    return a > 0 ? true : false
 }
 
 export const testRemove = async () => {
@@ -55,38 +41,54 @@ export const storeData = async (data) => {
     }
 }
 
-export const onAppStart = async () => {
-    const res = await isHistoryEmpty('@data')
-    if (res) {
-        await storeFirstTime()
-        console.log('yes')
-        return true
-    }
-    return true
+export const getPrevDay = (date) => {
+    let date1 = new Date(date);
+    date1.setDate(date1.getDate() - 1);
+
+    return date1.getDate()
 }
 
-export const storeFirstTime = async () => {
-    let data = {}
-    let timeStampKey = getCurrentTimeStampInKey()
-
-    // Storing first date
-    data['firstTS'] = timeStampKey
-    data['lastUpdate'] = timeStampKey // alwayts update the lastUpdate
-    data['nrecords'] = 1  // always update days +1 when storing
-    data['data'] = []
-    data.data.push({item: -1})
+export const getPrevMonth = (currMonth) => {
+    if (currMonth == 0) {
+        return 11
+    } 
     
-    try {
-        const jsonValue = JSON.stringify(data)
-        await AsyncStorage.setItem('@data', jsonValue)
-    } catch (e) {
-        // saving error
-        console.log(e)
-    }
+    return currMonth - 1
+}
+export const countBoxesDay =  (data, day, boxType) => {
+    const month = new Date().getMonth()
+    const year = new Date().getFullYear()
+
+    return data.data.filter( x => (x.item == boxType && x.date.day == day && x.date.month == month && x.date.year == year )).length
 }
 
-export const getKey = () => {
-    return '@data'
+export const countBoxesThisMonth =  (data, month, boxType) => {
+    const year = new Date().getFullYear()
+
+    return data.data.filter( x => (x.item == boxType && x.date.month == month && x.date.year == year)).length
 }
+
+export const countBoxesThisYear =  (data, year, boxType) => { 
+    return data.data.filter( x => (x.item == boxType && x.date.year == year)).length
+}
+
+export const countPerformance = (prevCount, currCount) => {
+    if ( prevCount != 0 ) {
+        return 100 * (currCount-prevCount)/prevCount // Increases percentage
+    }
+    return false
+}
+
+export const calculateRateOfPlacingBoxesPerHour = (data) => {
+    let total = 0
+    for ( let i = 1; i < data.data.length ; i++ ) {
+       let diff = Math.abs(data.data[i].timestamp - data.data[i-1].timestamp)/1000/60/60
+       total += diff;
+    }
+
+    return total/data.data.length
+}
+ 
+
 
 
